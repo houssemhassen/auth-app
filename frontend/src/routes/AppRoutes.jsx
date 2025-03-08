@@ -4,6 +4,7 @@ import LoginPage from "../pages/auth/Login";
 import RegisterPage from "../pages/auth/Register";
 import DashboardPage from "../pages/Dashboard";
 import NotFoundPage from "../pages/NotFound";
+import Home from "../pages/Home";
 
 const AppRoutes = () => {
   return (
@@ -12,6 +13,8 @@ const AppRoutes = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/home" element={<Home />} />
+
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

@@ -5,21 +5,22 @@ import { AuthContext } from "../../contexts/AuthContext";
 const RegisterPage = () => {
   const { register } = useContext(AuthContext);
   const [credentials, setCredentials] = useState({
-    fullname: "",
-    email: "",
-    password: "",
+    FirstName: "",
+    LastName: "",
+    Email: "",
+    Password1: "",
     confirmPassword: "",
   });
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (credentials.password !== credentials.confirmPassword) {
+    if (credentials.Password1 !== credentials.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
     register(credentials);
-    navigate("/dashboard");
+    navigate("/login");
   };
   
 
@@ -32,11 +33,23 @@ const RegisterPage = () => {
           <div className="input-wrapper">
             <input
               type="text"
-              name="fullname"
-              placeholder="Full Name"
-              value={credentials.fullname}
+              name="FirstName"
+              placeholder="First Name"
+              value={credentials.FirstName}
               onChange={(e) =>
-                setCredentials({ ...credentials, fullname: e.target.value })
+                setCredentials({ ...credentials, FirstName: e.target.value })
+              }
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              type="text"
+              name="LastName"
+              placeholder="Last Name"
+              value={credentials.LastName}
+              onChange={(e) =>
+                setCredentials({ ...credentials, LastName: e.target.value })
               }
               required
             />
@@ -46,9 +59,9 @@ const RegisterPage = () => {
               type="email"
               name="email"
               placeholder="Email Address"
-              value={credentials.email}
+              value={credentials.Email}
               onChange={(e) =>
-                setCredentials({ ...credentials, email: e.target.value })
+                setCredentials({ ...credentials, Email: e.target.value })
               }
               required
             />
@@ -57,11 +70,11 @@ const RegisterPage = () => {
             <div className="password-container">
               <input
                 type="password"
-                name="password"
+                name="Password1"
                 placeholder="Password"
-                value={credentials.password}
+                value={credentials.Password1}
                 onChange={(e) =>
-                  setCredentials({ ...credentials, password: e.target.value })
+                  setCredentials({ ...credentials, Password1: e.target.value })
                 }
                 required
               />

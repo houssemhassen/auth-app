@@ -7,13 +7,13 @@ namespace WebApi.Models.Users
         [Required]
         [MinLength(2)]
         [RegularExpression(@"^[A-Z][a-zA-Z'’-]+(?:\s[A-Z][a-zA-Z'’-]+)*$",
-            ErrorMessage = "invalid name format")]
+            ErrorMessage = "Le prénom doit commencer par une majuscule et contenir uniquement des lettres.")]
         public string FirstName { get; set; }
         
         [Required]
         [MinLength(2)]
         [RegularExpression(@"^[A-Z][a-zA-Z'’-]+(?:\s[A-Z][a-zA-Z'’-]+)*$",
-            ErrorMessage = "invalid name format")]
+            ErrorMessage = "Le nom doit commencer par une majuscule et contenir uniquement des lettres.")]
         public string LastName { get; set; }
 
         [Required]
@@ -28,6 +28,6 @@ namespace WebApi.Models.Users
         
         [Required]
         [Compare("Password1")]
-        public string Password2 { get; set; }
+        public string confirmpassword { get; set; }
     }
 }
